@@ -9,7 +9,9 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/Lang-FZ/LFZCategory"
+
   s.xcconfig  =  { "USER_HEADER_SEARCH_PATHS" => "${PODS_ROOT}/LFZCategory/LFZCategory/BPCategory" }
+
   s.license      = "MIT (LFZCategory)"
   s.author             = { "LangFZ" => "446003664@qq.com" }
   s.platform     = :ios, "8.0"
