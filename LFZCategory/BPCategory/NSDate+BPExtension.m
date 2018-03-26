@@ -25,6 +25,10 @@
 - (NSDateFormatter *)bp_formatter {
     if (objc_getAssociatedObject(self, @"bp_formatter") == nil) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        [formatter setCalendar:calendar];
+        
         objc_setAssociatedObject(self, @"bp_formatter", formatter, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return objc_getAssociatedObject(self, @"bp_formatter");
@@ -235,6 +239,10 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yy"];
     NSDate *date = [formatter dateFromString:yy];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [formatter setCalendar:calendar];
+    
     return date;
 }
 /** yyyy */
@@ -242,6 +250,10 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy"];
     NSDate *date = [formatter dateFromString:yyyy];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [formatter setCalendar:calendar];
+    
     return date;
 }
 
@@ -276,6 +288,9 @@
     } else {
         [formatter setDateFormat:@"yyyy MM"];
     }
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [formatter setCalendar:calendar];
+    
     [formatter setTimeZone:[[NSTimeZone alloc] initWithName:@"Asia/Shanghai"]];
     NSDate *date = [formatter dateFromString:[NSString stringWithFormat:@"%@ %@",yyyy,month]];
     
@@ -317,6 +332,8 @@
     } else {
         [dateFormat appendString:@"dd"];
     }
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [formatter setCalendar:calendar];
     
     [formatter setDateFormat:dateFormat];
     [formatter setTimeZone:[[NSTimeZone alloc] initWithName:@"Asia/Shanghai"]];
@@ -397,6 +414,8 @@
     } else {
         [dateFormat appendString:@"HH:mm:ss"];
     }
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [formatter setCalendar:calendar];
     
     [formatter setDateFormat:dateFormat];
     [formatter setTimeZone:[[NSTimeZone alloc] initWithName:@"Asia/Shanghai"]];
